@@ -38,15 +38,17 @@ Need to supply a defined string to operate on, a starting point (in chars), opti
 
 Use a WhateverCode if you want to modify a string some set offset from the end of an unknown length string rather than from the start.
 
-`'Be home by 6:00PM'.splice(*-2, 1, 'A')` # Be home by 6:00AM
+`'Be home by 6:00PM'.splice(*-2, 1, 'A')` `# Be home by 6:00AM`
 
 You may supply a start point larger than the string and the string will be padded with spaces to achieve that starting point.
 
-`splice('Raku', 9, 'rocks')` is valid, as is `splice('Raku', *+5, 'rocks')` # Raku rocks
+`splice('Raku', 9, 'rocks')` is valid, as is `splice('Raku', *+5, 'rocks')`
 
 The major difference in how String.splice differs from Array.splice is in that the starting position does not default to zero. It must be given.
 
-When using 4 argument splice: (String, start, chars, replace) the replace parameter does not need to ba a string. Anything that may be coerced to a string may be used. With 3 argument splice: (String, start, replace), replace MUST be a string to disambiguify the signature to the dispatcher.
+When using 4 argument splice: (String, start, chars, replace) the replace parameter does not need to be a string. Anything that may be coerced to a string may be used.
+
+With 3 argument splice: (String, start, replace), replace MUST be a string to disambiguify the signature to the dispatcher. Note that if you don't supply a replace string, it is considered to be a 4 argument form as the string '' is assumed.
 
 AUTHOR
 ======
