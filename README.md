@@ -1,9 +1,9 @@
-NAME
+Name
 ====
 
-String::Splice - Splice; but for Strings instead of Arrays
+String::Splice - splice, but for Strings instead of Arrays
 
-SYNOPSIS
+Synopsis
 ========
 
 ```perl6
@@ -12,7 +12,7 @@ use String::Splice;
 say 'Perl 6 is awesome'.splice(0, 6, 'Raku');
 # Raku is awesome
 
-say 'This is Rakudo'.splice(*-2, 2);
+say splice('This is Rakudo', *-2, 2);
 # This is Raku
 
 say "Tonight I'm gonna party like it's 1999"
@@ -20,7 +20,7 @@ say "Tonight I'm gonna party like it's 1999"
 # Tonight I'm gonna program like it's 2099
 ```
 
-DESCRIPTION
+Description
 ===========
 
 String::Splice is intended to give a simple interface to slicing and dicing Strings much in the same way that CORE Array.splice makes it easy to slice and dice Arrays.
@@ -30,8 +30,8 @@ Works very similarly on strings as the CORE splice works on Arrays.
 Available as both a method (augmenting strings) or as a subroutine (that primarily operates on strings).
 
 ```perl6
-multi sub    splice($String:D, $start, $chars?, Str $replacement = '' --> Str)
-multi method splice($String:D: $start, $chars?, Str $replacement = '' --> Str)
+multi sub    splice($String:D, $start, $chars?, $replacement = '' --> Str)
+multi method splice($String:D: $start, $chars?, $replacement = '' --> Str)
 ```
 
 Need to supply a defined string to operate on, a starting point (in chars), optionally the number of chars to affect, and an optional replacement string (defaults to ''). The starting point may be a positive integer, any Real numeric value that can be coerced to a positive integer, or a WhateverCode that will offset from the string end.
@@ -50,12 +50,19 @@ When using 4 argument splice: (String, start, chars, replace) the replace parame
 
 With 3 argument splice: (String, start, replace), replace MUST be a string to disambiguify the signature to the dispatcher. Note that if you don't supply a replace string, it is considered to be a 4 argument form as the string '' is assumed.
 
-AUTHOR
+Off topic musings
+=================
+
+I debated whether it was a good idea call this method/routine splice as splice is already used in core. The existing splice only works on Arrays and Bufs though, so there isn't much likelyhood of confusion. I kicked around a few other options (slice? dice?, nah, slice is already in use and not a very similar operation. dice maybe, but I really like the strange consistency between Array splice and String splice.)
+
+Honestly, I am slightly surprised that something like this does not already exist in CORE what with Perls reputation as a text wrangling utility. I would be quite willing to contribute the idea and code if there were interest in folding it in. Better to start out as a module though to prove it out.
+
+Author
 ======
 
 Steve Schulze (thundergnat)
 
-COPYRIGHT AND LICENSE
+Copyright and License
 =====================
 
 Copyright 2020 Steve Schulze

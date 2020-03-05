@@ -63,11 +63,11 @@ augment class Str does Splice { }
 
 =begin pod
 
-=head1 NAME
+=head1 Name
 
-String::Splice - Splice; but for Strings instead of Arrays
+String::Splice - splice, but for Strings instead of Arrays
 
-=head1 SYNOPSIS
+=head1 Synopsis
 
 =begin code :lang<perl6>
 
@@ -76,7 +76,7 @@ use String::Splice;
 say 'Perl 6 is awesome'.splice(0, 6, 'Raku');
 # Raku is awesome
 
-say 'This is Rakudo'.splice(*-2, 2);
+say splice('This is Rakudo', *-2, 2);
 # This is Raku
 
 say "Tonight I'm gonna party like it's 1999"
@@ -85,7 +85,7 @@ say "Tonight I'm gonna party like it's 1999"
 
 =end code
 
-=head1 DESCRIPTION
+=head1 Description
 
 String::Splice is intended to give a simple interface to slicing and dicing
 Strings  much in the same way that CORE Array.splice makes it easy to slice and
@@ -98,8 +98,8 @@ primarily operates on strings).
 
 =begin code :lang<perl6>
 
-multi sub    splice($String:D, $start, $chars?, Str $replacement = '' --> Str)
-multi method splice($String:D: $start, $chars?, Str $replacement = '' --> Str)
+multi sub    splice($String:D, $start, $chars?, $replacement = '' --> Str)
+multi method splice($String:D: $start, $chars?, $replacement = '' --> Str)
 
 =end code
 
@@ -132,11 +132,25 @@ disambiguify the signature to the dispatcher. Note that if you don't supply a
 replace string, it is considered to be a 4 argument form as the string '' is
 assumed.
 
-=head1 AUTHOR
+=head1 Off topic musings
+
+I debated whether it was a good idea call this method/routine splice as splice
+is already used in core. The existing splice only works on Arrays and Bufs
+though, so there isn't much likelyhood of confusion. I kicked around a few other
+options (slice? dice?, nah, slice is already in use and not a very similar
+operation. dice maybe, but I really like the strange consistency between Array
+splice and String splice.)
+
+Honestly, I am slightly surprised that something like this does not already
+exist in CORE what with Perls reputation as a text wrangling utility. I would be
+quite willing to contribute the idea and code if there were interest in folding
+it in. Better to start out as a module though to prove it out.
+
+=head1 Author
 
 Steve Schulze (thundergnat)
 
-=head1 COPYRIGHT AND LICENSE
+=head1 Copyright and License
 
 Copyright 2020 Steve Schulze
 
