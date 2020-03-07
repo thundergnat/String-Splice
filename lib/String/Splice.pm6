@@ -65,6 +65,8 @@ augment class Str does Splice { }
 
 =head1 Name
 
+[![Build Status](https://travis-ci.org/thundergnat/String-Splice.svg?branch=master)](https://travis-ci.org/thundergnat/String-Splice)
+
 String::Splice - splice, but for Strings instead of Arrays
 
 =head1 Synopsis
