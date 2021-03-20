@@ -1,5 +1,5 @@
 use v6.c;
-unit module Str::Splice:ver<0.0.2>:auth<github:thundergnat>;
+unit module Str::Splice:ver<0.0.3>:auth<github:thundergnat>;
 use nqp;
 
 role Splice {
@@ -56,10 +56,6 @@ sub splice-it ($str, $start, $chars = 0, $add = '') {
     (nqp::substr($str, 0, $start) ~ $add ~ nqp::substr($str, $start + $chars))
 }
 
-use MONKEY-TYPING;
-
-augment class Str does Splice { }
-
 
 =begin pod
 
@@ -75,14 +71,14 @@ String::Splice - splice, but for Strings instead of Arrays
 
 use String::Splice;
 
-say 'Perl 6 is awesome'.splice(0, 6, 'Raku');
+say 'Perl 6 is awesome'.&splice(0, 6, 'Raku');
 # Raku is awesome
 
 say splice('This is Rakudo', *-2, 2);
 # This is Raku
 
 say "Tonight I'm gonna party like it's 1999"
-  .splice(18, 5, 'program').splice(*-4, 2, 20);
+  .&splice(18, 5, 'program').&splice(*-4, 2, 20);
 # Tonight I'm gonna program like it's 2099
 
 =end code
@@ -101,7 +97,6 @@ primarily operates on strings).
 =begin code :lang<perl6>
 
 multi sub    splice($String:D, $start, $chars?, $replacement = '' --> Str)
-multi method splice($String:D: $start, $chars?, $replacement = '' --> Str)
 
 =end code
 
@@ -116,7 +111,7 @@ offset from the string end.
 Use a WhateverCode if you want to modify a string some set offset from the end
 of an unknown length string rather than from the start.
 
-C<'Be home by 6:00PM'.splice(*-2, 1, 'A')>
+C<'Be home by 6:00PM'.&splice(*-2, 1, 'A')>
 C<# Be home by 6:00AM>
 
 You may supply a start point larger than the string and the string will be

@@ -11,14 +11,14 @@ Synopsis
 ```perl6
 use String::Splice;
 
-say 'Perl 6 is awesome'.splice(0, 6, 'Raku');
+say 'Perl 6 is awesome'.&splice(0, 6, 'Raku');
 # Raku is awesome
 
 say splice('This is Rakudo', *-2, 2);
 # This is Raku
 
 say "Tonight I'm gonna party like it's 1999"
-  .splice(18, 5, 'program').splice(*-4, 2, 20);
+  .&splice(18, 5, 'program').&splice(*-4, 2, 20);
 # Tonight I'm gonna program like it's 2099
 ```
 
@@ -33,7 +33,6 @@ Available as both a method (augmenting strings) or as a subroutine (that primari
 
 ```perl6
 multi sub    splice($String:D, $start, $chars?, $replacement = '' --> Str)
-multi method splice($String:D: $start, $chars?, $replacement = '' --> Str)
 ```
 
 The splice routine may be called with either three or four parameters.
@@ -42,7 +41,7 @@ Need to supply a defined string to operate on, a starting point (in chars), opti
 
 Use a WhateverCode if you want to modify a string some set offset from the end of an unknown length string rather than from the start.
 
-`'Be home by 6:00PM'.splice(*-2, 1, 'A')` `# Be home by 6:00AM`
+`'Be home by 6:00PM'.&splice(*-2, 1, 'A')` `# Be home by 6:00AM`
 
 You may supply a start point larger than the string and the string will be padded with spaces to achieve that starting point.
 

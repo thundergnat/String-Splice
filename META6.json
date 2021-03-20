@@ -16,5 +16,5 @@
   "source-url" : "git://github.com/thundergnat/String-Splice.git",
   "tags" : ["String","Strings","Text wrangling"],
   "test-depends" : [ ],
-  "version" : "0.0.2"
+  "version" : "0.0.3"
 }
