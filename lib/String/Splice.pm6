@@ -1,5 +1,4 @@
-use v6.c;
-unit module Str::Splice:ver<0.0.3>:auth<github:thundergnat>;
+unit module Str::Splice:ver<0.0.4>:auth<zef:thundergnat>;
 use nqp;
 
 role Splice {
@@ -61,13 +60,11 @@ sub splice-it ($str, $start, $chars = 0, $add = '') {
 
 =head1 Name
 
-[![Build Status](https://travis-ci.org/thundergnat/String-Splice.svg?branch=master)](https://travis-ci.org/thundergnat/String-Splice)
-
 String::Splice - splice, but for Strings instead of Arrays
 
 =head1 Synopsis
 
-=begin code :lang<perl6>
+=begin code :lang<raku>
 
 use String::Splice;
 
@@ -91,12 +88,12 @@ dice Arrays.
 
 Works very similarly on strings as the CORE splice works on Arrays.
 
-Available as both a method (augmenting strings) or as a subroutine (that
-primarily operates on strings).
+Available as both a Role C<Splice> which may be used as a mixin, or to augment
+strings, and as a subroutine (that primarily operates on strings).
 
-=begin code :lang<perl6>
+=begin code :lang<raku>
 
-multi sub    splice($String:D, $start, $chars?, $replacement = '' --> Str)
+multi sub splice($String:D, $start, $chars?, $replacement = '' --> Str)
 
 =end code
 

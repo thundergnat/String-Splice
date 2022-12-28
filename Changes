@@ -1,0 +1,12 @@
+Revision history for String-Splice
+
+{{$NEXT}}
+       - Migrate to fez ecosystem
+
+0.0.3  - Remove automatic augmentation
+         Role is still available but not automatically applied
+
+0.0.2  - Allow negative offsets
+         Better testing of edge conditions
+
+0.0.1  - Initial version

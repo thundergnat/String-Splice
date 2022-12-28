@@ -1,20 +1,28 @@
 {
-  "authors" : [
+  "auth": "zef:thundergnat",
+  "authors": [
     "Steve Schulze (thundergnat)"
   ],
-  "build-depends" : [ ],
-  "depends" : [ ],
-  "description" : "Splice, but on strings rather than arrays",
-  "license" : "Artistic-2.0",
-  "name" : "String::Splice",
-  "perl" : "6.c",
-  "provides" : {
-    "String::Splice" : "lib/String/Splice.pm6"
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "Splice, but on strings rather than arrays",
+  "license": "Artistic-2.0",
+  "name": "String::Splice",
+  "perl": "6.*",
+  "provides": {
+    "String::Splice": "lib/String/Splice.pm6"
   },
-  "resources" : [ ],
-  "source-type" : "git",
-  "source-url" : "git://github.com/thundergnat/String-Splice.git",
-  "tags" : ["String","Strings","Text wrangling"],
-  "test-depends" : [ ],
-  "version" : "0.0.3"
+  "resources": [
+  ],
+  "source-url": "git://github.com/thundergnat/String-Splice.git",
+  "tags": [
+     "String",
+     "Strings",
+     "Text wrangling"
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.4"
 }
